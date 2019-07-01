@@ -1,0 +1,27 @@
+
+
+
+.nav {
+  position: scroll;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: rgba(12, 12, 12,0.9);
+  
+  font-size: 1rem;
+
+  overflow: hidden;
+}
+
+
+
+
+.List {
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+p{
+  padding: .5rem 1rem;
+}

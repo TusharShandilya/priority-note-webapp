@@ -1,0 +1,20 @@
+.logo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 2rem;
+  text-decoration: underline;
+  margin: 1rem 2rem;
+  text-shadow: .015rem .015rem .2rem  rgb(251, 255, 176);
+}
+
+.logo img {
+  width: auto;
+  height: 3rem;
+  margin: .5rem;
+  /* box-shadow: .015rem .015rem .2rem  rgb(251, 255, 176);
+  border-radius: .3em;
+  background: #121212;
+  padding: .5rem; */
+}
