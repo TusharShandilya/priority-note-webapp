@@ -1,0 +1,34 @@
+.notes{
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 85vw;
+  background-color: #202020;
+  border-radius: .3rem;
+  border: .3rem solid;
+  border-color: #121212;
+  height: 50vh;
+}
+
+ul{
+  overflow-y: scroll;
+  width: 100%;
+}
+
+li {
+  font-size: 1.5rem;
+  padding: .7rem 1rem .2rem 1rem;
+
+
+}
+
+li + hr{
+  text-align: left;
+  height: 0rem;
+  width:40%;
+  color: rgba(251, 255, 176,.5);
+  text-shadow: .015rem .015rem .2rem  rgb(251, 255, 176);
+  /* color: #c0c0c0; */
+}

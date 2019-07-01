@@ -1,13 +1,19 @@
 import React from 'react';
 import './TaskInput.css';
+import addSign from "./add.png";
 
 
-const TaskInput = () => {
+const TaskInput = ({ children, onAddClick }) => {
   return (
     <div className="taskInput">
-      <input type="text" placeholder="Enter Input"/>
-      <div className="delete">X</div>
+      {/* <div className="delete buttons" >x</div> */}
+      <input  type="text" placeholder="Enter Input" autoFocus/>
+      <button className='add buttons' id="#add" onClick={onAddClick} value="addButton">+
+      </button>
+
+
     </div>
+
   );
 };
 

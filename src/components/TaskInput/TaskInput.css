@@ -1,6 +1,66 @@
 .taskInput{
   display: flex;
   justify-content: center;
-  font-size: 1.5rem;
-  
+  align-items: center;
+  font-size: 2rem;
+  box-shadow: .3rem .3rem .4rem #202020;
+
+}
+
+ input {
+   text-align: justify;
+   font-size: 1.5rem;
+   width: 85vw;
+   border: .3rem solid;
+   padding: 0.4rem .75rem;
+   background-color: rgba(40, 48, 68,0.8);
+   color: rgb(212, 219, 226);
+   border-color: rgba(107, 112, 152, 0.7);
+   border-radius: .38rem 0rem 0rem .38rem;
+
+
+ }
+
+
+
+.buttons{
+  padding: 0.1rem .5rem;
+  /* font-weight: bolder; */
+  border: .3rem solid;
+  font-size: 2rem;
+  color: rgba(241, 241, 241, 0.8);
+}
+
+/* remove delete button */
+
+.delete{
+  margin-right: .24rem;
+  border-radius: .38rem 0rem 0rem .38rem;
+  background-color: rgba(209, 39, 39, 0.93);
+  color: rgb(143, 13, 13);
+}
+
+.delete:hover{
+  background-color: rgba(210, 70, 70,1);
+  color: rgb(143, 13, 13);
+  /* transform: scale(1.05); */
+  transition: .075s;
+}
+
+.add{
+  margin-left: .023rem;
+  border-radius: 0rem .38rem .38rem 0rem;
+  background-color: rgb(79, 179, 121);
+
+  border-color: rgb(63, 138, 95);
+
+  transition: .75s;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+
+}
+
+.add:hover{
+  background-color: rgb(63, 138, 95);
+
 }

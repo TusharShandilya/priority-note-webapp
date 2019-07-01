@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation/Navigation';
 import Logo from '../components/Logo/Logo';
 import Welcome from '../components/Welcome/Welcome';
 import TaskInput from '../components/TaskInput/TaskInput';
+import Notes from '../components/Notes/Notes';
 
 class App extends Component {
   constructor(props){
@@ -11,31 +12,36 @@ class App extends Component {
     this.state = {
       inputField: '',
       name: 'Billy',
+      list: ['milk'],
     }
+
+  }
+
+  onAddClick = (event) => {
+    console.log(event.target.value);
+    console.log(this.state.list[0]);
 
   }
 
   render(){
     return (
       <div className="App">
-
-
         <Navigation />
+        <Welcome name={this.state.name}/>
+        <Logo />
         <div className="wrapper">
-          <Welcome name={this.state.name}/>
-          <Logo />
-          <TaskInput />
+
+          <TaskInput onAddClick={this.onAddClick} />
+          <Notes />
         </div>
 
         {/*
         <SignIn />
         <Register />
-
-
-        <Notes />
         <Topic /> //
         <Settings />
          */}
+
       </div>
     );
   }
