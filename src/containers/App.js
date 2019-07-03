@@ -33,7 +33,7 @@ class App extends Component {
     this.setState({list: newListOfItems});
     this.setState({inputField: null});
 
-    
+    this.clearInput();
     
   }
 
@@ -47,14 +47,19 @@ class App extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({inputField: event.target.value});
-    event.persist();    
+    this.setState({inputField: event.target.value});     
+  }
+
+  clearInput = () => {
+    console.log(document.getElementById("entryField"));
+    document.getElementById("entryField").value = ' ';
   }
 
   keyPress = (e) => {
-    console.log(e.keyCode );
+   
     if(e.keyCode === 13){
       this.handleAddClick();
+            
     }
   }
 

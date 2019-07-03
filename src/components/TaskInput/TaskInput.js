@@ -12,6 +12,7 @@ const TaskInput = ({enterPress,  onInputChange, onAddClick }) => {
           type="text" 
           placeholder="Enter Input" 
           autoFocus 
+          id="entryField"
           onChange={onInputChange}
           onKeyDown={enterPress} />
         <button className='add buttons' id="#add" onClick={onAddClick} value="addButton">+
