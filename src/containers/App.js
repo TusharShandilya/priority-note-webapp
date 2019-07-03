@@ -5,6 +5,7 @@ import Logo from '../components/Logo/Logo';
 import Welcome from '../components/Welcome/Welcome';
 import TaskInput from '../components/TaskInput/TaskInput';
 import NotesList from '../components/NotesList/NotesList';
+import SignIn from '../components/SignIn/SignIn';
 
 const initialState = {
   inputField: null,  
@@ -55,11 +56,9 @@ class App extends Component {
     document.getElementById("entryField").value = ' ';
   }
 
-  keyPress = (e) => {
-   
+  keyPress = (e) => {   
     if(e.keyCode === 13){
-      this.handleAddClick();
-            
+      this.handleAddClick();            
     }
   }
 
@@ -85,8 +84,8 @@ class App extends Component {
 
         </div>
 
-        {/*
-        <SignIn />
+        
+        <SignIn />{/*}
         <Register />
         <Topic /> //
         <Settings />

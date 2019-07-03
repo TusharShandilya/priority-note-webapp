@@ -16,7 +16,7 @@
 
 
 
-.List {
+.list {
 
   display: flex;
   justify-content: flex-end;
@@ -24,4 +24,10 @@
 
 p{
   padding: .5rem 1rem;
+  margin-right: 1rem;
+}
+
+.list p:hover {
+  background-color: rgba(251, 255, 176,0.4);  
+  transition: .5s;
 }
