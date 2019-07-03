@@ -2,25 +2,10 @@ import React from 'react';
 import './Notes.css';
 
 
-const Notes = () => {
+const Notes = ({ sNo, item }) => {
   return (
-    <div className="notes">
-      <ul>
-      {/*
-        <li>You can</li><hr/>
-        <li>enter your </li><hr/>
-        <li>Shopping List here</li><hr/>
-        <li>You can</li><hr/>
-        <li>enter your </li><hr/>
-        <li>Shopping List here</li><hr/>
-        <li>You can</li><hr/>
-        <li>enter your </li><hr/>
-        <li>Shopping List here</li><hr/>
-        <li>You can</li><hr/>
-        <li>enter your </li><hr/>
-        <li>Shopping List here</li><hr/>
-      */}
-      </ul>
+    <div >
+      <li key= {sNo}>{`${item}`}</li>
     </div>
   );
 };

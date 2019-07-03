@@ -4,26 +4,62 @@ import Navigation from '../components/Navigation/Navigation';
 import Logo from '../components/Logo/Logo';
 import Welcome from '../components/Welcome/Welcome';
 import TaskInput from '../components/TaskInput/TaskInput';
-import Notes from '../components/Notes/Notes';
+import NotesList from '../components/NotesList/NotesList';
+
+const initialState = {
+  inputField: null,  
+  name: 'Billy',
+  list: [],
+  
+};
+
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      inputField: '',
-      name: 'Billy',
-      list: ['milk'],
-    }
+    this.state = initialState;
 
   }
 
-  onAddClick = (event) => {
-    console.log(event.target.value);
-    console.log(this.state.list[0]);
+  handleAddClick = () => {
+    const newListOfItems = this.state.list;
+   
+    if(this.state.inputField)
+    {newListOfItems.push({
+      sNo: newListOfItems.length,
+      item: this.state.inputField
+    });}
 
+    this.setState({list: newListOfItems});
+    this.setState({inputField: null});
+
+    
+    
+  }
+
+  handleDeleteClick = (event) => {
+    console.log(event.target.id);
+    const newListOfItems = this.state.list;
+
+    newListOfItems.splice(event.target.id,1);
+
+    this.setState({list: newListOfItems});
+  }
+
+  handleChange = (event) => {
+    this.setState({inputField: event.target.value});
+    event.persist();    
+  }
+
+  keyPress = (e) => {
+    console.log(e.keyCode );
+    if(e.keyCode === 13){
+      this.handleAddClick();
+    }
   }
 
   render(){
+
     return (
       <div className="App">
         <Navigation />
@@ -31,8 +67,17 @@ class App extends Component {
         <Logo />
         <div className="wrapper">
 
-          <TaskInput onAddClick={this.onAddClick} />
-          <Notes />
+          <TaskInput 
+            setNull = {this.state.setNull}
+            onAddClick={this.handleAddClick} 
+            onInputChange={this.handleChange}
+            enterPress={this.keyPress}
+            />
+
+          <NotesList 
+            onDeleteClick={this.handleDeleteClick} 
+            itemList={this.state.list}/>
+
         </div>
 
         {/*

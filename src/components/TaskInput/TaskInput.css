@@ -31,21 +31,7 @@
   color: rgba(241, 241, 241, 0.8);
 }
 
-/* remove delete button */
 
-.delete{
-  margin-right: .24rem;
-  border-radius: .38rem 0rem 0rem .38rem;
-  background-color: rgba(209, 39, 39, 0.93);
-  color: rgb(143, 13, 13);
-}
-
-.delete:hover{
-  background-color: rgba(210, 70, 70,1);
-  color: rgb(143, 13, 13);
-  /* transform: scale(1.05); */
-  transition: .075s;
-}
 
 .add{
   margin-left: .023rem;
