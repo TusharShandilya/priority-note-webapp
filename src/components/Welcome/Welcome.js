@@ -4,7 +4,7 @@ import './Welcome.css';
 const Welcome = ({ name }) => {
   return (
     <div className="welcome">
-      <p> {`Welcome, ${name}. What's on your mind?`} </p>
+      <p> {`Welcome, ${name}. How are you today?`} </p>
     </div>
   );
 };

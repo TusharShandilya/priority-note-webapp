@@ -9,7 +9,7 @@ const TaskInput = ({ onPriorityChange, enterPress,  onInputChange, onAddClick })
         {/* <div className="delete buttons" >x</div> */}
         <input  
           type="text" 
-          placeholder="Enter Input" 
+          placeholder="What's on your mind?" 
           autoFocus 
           id="entryField"
           onChange={onInputChange}
