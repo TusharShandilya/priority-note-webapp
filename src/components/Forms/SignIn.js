@@ -4,7 +4,10 @@ import "tachyons";
 
 
 class SignIn extends React.Component {
-
+    
+    constructor(props){
+        super(props)
+    }
     render(){
 
         return(
@@ -36,14 +39,20 @@ class SignIn extends React.Component {
                     </label>
                     */}
             </fieldset>
-            <div class="tc">
+            <div class="tc ">
                 <input 
-                    class="grow pointer field" 
+                    class="grow field" 
                     type="submit" 
-                    value="Sign in" />
+                    value="Sign In"
+                    id="home"
+                    onClick={this.props.onRegClick} />
             </div>
             <div class="tc mt3">
-                <a href="#0" class="dim pointer links">Register</a>
+                <a 
+                  href="#0" 
+                  class="dim pointer links"
+                  id="register"
+                  onClick={this.props.onRegClick}>Register</a>
                 {/*
                     *TODO:
                     ** make it work at the backend with update command

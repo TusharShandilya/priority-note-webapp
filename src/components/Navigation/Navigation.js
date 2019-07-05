@@ -18,9 +18,7 @@ const Navigation = ({currentRoute, onNavClick}) => {
       <p id="signout" onClick={onNavClick}>SignOut</p>
       </div>
     </div>);
-  }
-
-  
+  }  
 };
 
 export default Navigation;

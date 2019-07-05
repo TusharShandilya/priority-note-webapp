@@ -1,9 +1,8 @@
 import React from 'react';
 import './TaskInput.css';
 
-
-
-const TaskInput = ({enterPress,  onInputChange, onAddClick }) => {
+const TaskInput = ({ onPriorityChange, enterPress,  onInputChange, onAddClick }) => {
+  
   return (
     <div>
       <div className="taskInput">
@@ -15,7 +14,21 @@ const TaskInput = ({enterPress,  onInputChange, onAddClick }) => {
           id="entryField"
           onChange={onInputChange}
           onKeyDown={enterPress} />
-        <button className='add buttons' id="#add" onClick={onAddClick} value="addButton">+
+         <select 
+          id="priority" 
+          className="priorityList"
+          onChange={ onPriorityChange }>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3" selected="selected">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select> 
+        <button 
+          className='add buttons' 
+          id="#add" 
+          onClick={onAddClick} 
+          value="addButton">+
         </button>
       </div>
 

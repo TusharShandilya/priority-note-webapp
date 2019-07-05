@@ -56,8 +56,10 @@ div + hr{
 }
 
 .delete:hover{
-  background-color: rgba(210, 70, 70,0);
+  background-color: rgba(210, 70, 70,0.3);
   border: .02rem solid;
   padding: .3rem;
   color: rgba(210, 13, 13,1); 
+  cursor: pointer;
+  transition: .25s;
 }

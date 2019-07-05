@@ -11,6 +11,7 @@
 
 h3{
     font-family: 'Tangerine', cursive;
+    letter-spacing: .15rem;
 }
 
 .inputField{
@@ -33,13 +34,15 @@ h3{
 
 .field{
     border-radius: 0.25rem;
-    width: 5rem;
-    padding: 0.3rem;
+    /* width: 5rem; */
+    padding: 0.rem;
     background-color: #202020;
     box-shadow: 0.2rem 0.2rem 0.3rem #121212;
     border: 0.1rem solid #f3f6d0;
     color: #f3f6d0;
     text-align: center;
+    width: min-content;
+    font-size: .9rem;
 }
 
 .links{
@@ -49,8 +52,4 @@ h3{
     font-size: 0.8rem;
     
 
-}
-
-.centeral {
-    
 }

@@ -3,8 +3,7 @@
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  box-shadow: .3rem .3rem .4rem #202020;
-
+  
 }
 
  input {
@@ -17,36 +16,71 @@
    color: rgb(212, 219, 226);
    border-color: rgba(107, 112, 152, 0.7);
    border-radius: .38rem 0rem 0rem .38rem;
-
-
+   letter-spacing: 0.25rem;
+   box-shadow: .3rem .3rem .4rem #202020;
  }
 
-
+ input:hover{
+  background-color: rgba(40, 48, 68,0.4);
+  transform: scale(1.005);
+  transition: .5s;
+ }
 
 .buttons{
   padding: 0.1rem .5rem;
-  /* font-weight: bolder; */
   border: .3rem solid;
   font-size: 2rem;
   color: rgba(241, 241, 241, 0.8);
 }
 
-
-
 .add{
   margin-left: .023rem;
   border-radius: 0rem .38rem .38rem 0rem;
   background-color: rgb(79, 179, 121);
-
   border-color: rgb(63, 138, 95);
-
   transition: .75s;
   background-repeat: no-repeat;
   vertical-align: middle;
-
+  box-shadow: .3rem .3rem .4rem #202020;
 }
 
 .add:hover{
   background-color: rgb(63, 138, 95);
+  transform: rotateZ(360deg);
+  transition: .25s;
+}
 
+.priorityList{
+  padding: 0.5rem;
+  border: 0.3rem solid rgb(228, 145, 50);
+  background-color: rgba(224, 177, 47,1);
+  color: rgb(218, 33, 0);
+  font-weight: bolder;
+  font-size: 1.5rem;
+  border-radius: .3rem .3rem .3rem .3rem;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+   box-shadow: .3rem .3rem .4rem #202020;
+}
+
+.priorityList:hover {
+  background-color: rgb(228, 145, 50);
+  transform: scale(1.005);
+  transition: .15s; 
+}
+
+option{
+  font-size: 1rem;
+  padding-right: 1rem;
+  font-weight: bold;
+}
+  
+
+
+option:hover{
+  background-color: orange;
+  transform: scale(1.2);
+  transition: .25s;
 }

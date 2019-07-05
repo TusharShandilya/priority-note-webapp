@@ -5,6 +5,10 @@ import "tachyons";
 
 class SignIn extends React.Component {
 
+    constructor(props){
+        super(props)
+    }
+
     render(){
 
         return(
@@ -48,7 +52,7 @@ class SignIn extends React.Component {
                 <input 
                     class="grow pointer field" 
                     type="submit" 
-                    value="Sign in" />
+                    value="Sign Up" />
             </div>
             
         </div>

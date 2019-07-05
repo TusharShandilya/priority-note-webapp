@@ -3,9 +3,9 @@ import './NotesList.css';
 import Notes from '../Notes/Notes';
 
 
+
 const NotesList = ({ onDeleteClick, itemList }) => {
-
-
+   
   const item =  itemList.map((user,i) => {
     return (
       <div key={i}>
@@ -13,7 +13,9 @@ const NotesList = ({ onDeleteClick, itemList }) => {
             <Notes
             sNo={itemList[i].sNo}
             item={itemList[i].item}
+            priority={itemList[i].priority}
             />
+            
             <p 
             className="delete" 
             id={`${i}`}

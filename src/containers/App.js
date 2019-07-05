@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-/* import 'tachyons';*/
+import 'tachyons';
 import './App.css';
 import Navigation from '../components/Navigation/Navigation';
 import Logo from '../components/Logo/Logo';
@@ -14,6 +14,7 @@ const initialState = {
   name: 'Billy',
   list: [],
   route: 'signIn',
+  priority: '3',
   
 };
 
@@ -43,7 +44,8 @@ class App extends Component {
     if(this.state.inputField)
     {newListOfItems.push({
       sNo: newListOfItems.length,
-      item: this.state.inputField
+      item: this.state.inputField,
+      priority: this.state.priority,
     });}
 
     this.setState({list: newListOfItems});
@@ -60,7 +62,13 @@ class App extends Component {
     newListOfItems.splice(event.target.id,1);
 
     this.setState({list: newListOfItems});
-  }  
+  }
+
+  handlePriorityChange = (event) => {
+    console.log(event.target.value);
+    this.setState({priority: event.target.value})
+
+  }
 
   handleChange = (event) => {
     this.setState({inputField: event.target.value});     
@@ -79,16 +87,16 @@ class App extends Component {
 
   render(){
 
-    const {name, list, route} = this.state;
+    const {name, list, route, priority} = this.state;
 
     return (
       <div className="App">
         <Navigation 
           currentRoute={ route }
           onNavClick = { this.handleNavClick }
-          />
+          />        
         <Logo />
-        {route === 'signIn' ? <div className="wrapper"> <SignIn /> </div> :
+        {route === 'signIn' ? <div className="wrapper"> <SignIn onRegClick = {this.handleNavClick} /> </div> :
                     route === 'register' ? <div className="wrapper"><Register /> </div> :
                       <div className="wrapper">
                         <Welcome name={name}/>
@@ -96,8 +104,10 @@ class App extends Component {
                           onAddClick={this.handleAddClick} 
                           onInputChange={this.handleChange}
                           enterPress={this.keyPress}
+                          onPriorityChange={this.handlePriorityChange}
                         />
                         <NotesList 
+                          priorityNumber={priority}
                           onDeleteClick={this.handleDeleteClick} 
                           itemList={list}/>
                       </div>      
