@@ -46,7 +46,7 @@ div + hr{
   /* font-size: .03rem; */
   padding: 0.3rem;
   /* margin-right: .24rem; */
-  border: 0.01rem solid;
+  border: 0.05rem solid  rgba(210, 70, 70,0.7);
   border-radius: .15rem .15rem .15rem .15rem;
   background-color: rgba(210, 70, 70,0);
   color: rgb(143, 13, 13);
