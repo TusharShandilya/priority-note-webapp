@@ -22,8 +22,20 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = initialState;
-
   }
+
+  handleNavClick = (event) => {
+    console.log(event.target.id);
+    if(event.target.id === "register") {
+      this.setState({route: 'register'});
+    } else if(event.target.id === "signIn") {
+        this.setState({route: 'signIn'});
+      } else if(event.target.id === "signout") {
+          this.setState({route: 'signIn'});
+        } else {
+            this.setState({route: 'home'});
+          }
+  } 
 
   handleAddClick = () => {
     const newListOfItems = this.state.list;
@@ -48,7 +60,7 @@ class App extends Component {
     newListOfItems.splice(event.target.id,1);
 
     this.setState({list: newListOfItems});
-  }
+  }  
 
   handleChange = (event) => {
     this.setState({inputField: event.target.value});     
@@ -71,11 +83,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Navigation />
+        <Navigation 
+          currentRoute={ route }
+          onNavClick = { this.handleNavClick }
+          />
         <Logo />
-
-      {
-        route === 'signIn' ? <div className="wrapper"> <SignIn /> </div> :
+        {route === 'signIn' ? <div className="wrapper"> <SignIn /> </div> :
                     route === 'register' ? <div className="wrapper"><Register /> </div> :
                       <div className="wrapper">
                         <Welcome name={name}/>
@@ -88,12 +101,7 @@ class App extends Component {
                           onDeleteClick={this.handleDeleteClick} 
                           itemList={list}/>
                       </div>      
-      }
-
-        
-
-        
-       
+        }   
         {/*}
         <Topic /> //
         <Settings />
