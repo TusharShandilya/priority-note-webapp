@@ -1,0 +1,56 @@
+
+.formWrapper{
+    border: 0.1rem solid rgba(230, 218, 150, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: .3rem;
+    padding: 3rem;
+    box-shadow:.15rem .15rem .7rem rgba(230, 218, 150, 0.4);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Tangerine&display=swap');
+
+h3{
+    font-family: 'Tangerine', cursive;
+}
+
+.inputField{
+    border: 0.1rem solid #595d79;
+    color: rgb(212, 219, 226);
+    border-radius: 0.25rem;
+    background-color: #303030;
+    width: 15rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    box-shadow: 0.2rem 0.2rem 0.3rem #121212;
+    
+    
+}
+
+.inputField:hover{
+    background-color: #121212;
+}
+
+
+.field{
+    border-radius: 0.25rem;
+    width: 5rem;
+    padding: 0.3rem;
+    background-color: #202020;
+    box-shadow: 0.2rem 0.2rem 0.3rem #121212;
+    border: 0.1rem solid #f3f6d0;
+    color: #f3f6d0;
+    text-align: center;
+}
+
+.links{
+    text-align: center;
+    color: #f3f6d0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    
+
+}
+
+.centeral {
+    
+}

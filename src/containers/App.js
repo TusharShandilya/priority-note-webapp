@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+/* import 'tachyons';*/
 import './App.css';
 import Navigation from '../components/Navigation/Navigation';
 import Logo from '../components/Logo/Logo';
 import Welcome from '../components/Welcome/Welcome';
 import TaskInput from '../components/TaskInput/TaskInput';
 import NotesList from '../components/NotesList/NotesList';
-import SignIn from '../components/SignIn/SignIn';
+import SignIn from '../components/Forms/SignIn';
+import Register from '../components/Forms/Register';
 
 const initialState = {
   inputField: null,  
   name: 'Billy',
   list: [],
+  route: 'signIn',
   
 };
 
@@ -64,29 +67,34 @@ class App extends Component {
 
   render(){
 
+    const {name, list, route} = this.state;
+
     return (
       <div className="App">
         <Navigation />
-        <Welcome name={this.state.name}/>
         <Logo />
-        <div className="wrapper">
 
-          <TaskInput 
-            setNull = {this.state.setNull}
-            onAddClick={this.handleAddClick} 
-            onInputChange={this.handleChange}
-            enterPress={this.keyPress}
-            />
-
-          <NotesList 
-            onDeleteClick={this.handleDeleteClick} 
-            itemList={this.state.list}/>
-
-        </div>
+      {
+        route === 'signIn' ? <div className="wrapper"> <SignIn /> </div> :
+                    route === 'register' ? <div className="wrapper"><Register /> </div> :
+                      <div className="wrapper">
+                        <Welcome name={name}/>
+                        <TaskInput             
+                          onAddClick={this.handleAddClick} 
+                          onInputChange={this.handleChange}
+                          enterPress={this.keyPress}
+                        />
+                        <NotesList 
+                          onDeleteClick={this.handleDeleteClick} 
+                          itemList={list}/>
+                      </div>      
+      }
 
         
-        <SignIn />{/*}
-        <Register />
+
+        
+       
+        {/*}
         <Topic /> //
         <Settings />
          */}
