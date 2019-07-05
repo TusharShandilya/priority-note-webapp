@@ -9,7 +9,6 @@ const Navigation = ({currentRoute, onNavClick}) => {
       <div className='list'>
         <p id="signIn" onClick={onNavClick}>SignIn</p>
         <p id="register" onClick={onNavClick}>Register</p>
-        <p id="home" onClick={onNavClick}>AltHomeRoute</p>
       </div>
     </div>);
   } else {
