@@ -11,11 +11,16 @@ import Register from '../components/Forms/Register';
 
 const initialState = {
   inputField: null,  
-  name: 'Billy',
   list: [],
   route: 'signIn',
   priority: '3',
-  
+  user : {
+    id: '',
+    name: '',
+    email: '',
+    enteries: 0,
+    joined: ''
+  }
 };
 
 
@@ -25,18 +30,28 @@ class App extends Component {
     this.state = initialState;
   }
 
-  handleNavClick = (event) => {
-    console.log(event.target.id);
-    if(event.target.id === "register") {
+  handleRouteChange = (route) => {
+    if(route === "register") {
       this.setState({route: 'register'});
-    } else if(event.target.id === "signIn") {
+    } else if(route === "signIn" || route === "signout") {
         this.setState({route: 'signIn'});
-      } else if(event.target.id === "signout") {
-          this.setState({route: 'signIn'});
-        } else {
+      } else {
             this.setState({route: 'home'});
           }
   } 
+
+  loadUser = (data) => {
+    console.log(data);
+    this.setState({
+      user : {
+        id: data.id,
+        name: data.user_name,
+        email: data.email,
+        enteries: data.enteries,
+        joined: data.joined
+      }
+    })
+  }
 
   handleAddClick = () => {
     const newListOfItems = this.state.list;
@@ -87,19 +102,30 @@ class App extends Component {
 
   render(){
 
-    const {name, list, route, priority} = this.state;
+    const {user, list, route, priority} = this.state;
 
     return (
       <div className="App">
         <Navigation 
           currentRoute={ route }
-          onNavClick = { this.handleNavClick }
+          handleRouteChange = { this.handleRouteChange }
           />        
         <Logo />
-        {route === 'signIn' ? <div className="wrapper"> <SignIn onRegClick = {this.handleNavClick} /> </div> :
-                    route === 'register' ? <div className="wrapper"><Register /> </div> :
+        {route === 'signIn' ?
+              <div className="wrapper">
+                <SignIn 
+                  loadUser={this.loadUser}
+                  handleRouteChange = {this.handleRouteChange} /> 
+                </div> :
+                    route === 'register' ? 
+                        <div className="wrapper">
+                          <Register 
+                            loadUser={this.loadUser}
+                            handleRouteChange = { this.handleRouteChange }
+                          /> 
+                        </div> :
                       <div className="wrapper">
-                        <Welcome name={name}/>
+                        <Welcome name={user.name}/>
                         <TaskInput             
                           onAddClick={this.handleAddClick} 
                           onInputChange={this.handleChange}
