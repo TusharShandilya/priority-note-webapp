@@ -106,9 +106,7 @@ class App extends Component {
   handleDeleteClick = (event) => {
     
     const newListOfItems = this.state.list;
-
     newListOfItems.splice(event.target.value,1);
-
     this.setState({list: newListOfItems});
 
     fetch('http://localhost:3001/delete', {
@@ -119,14 +117,10 @@ class App extends Component {
       })
     }).then(resp => resp.json())
       .then(deleted => console.log(deleted))
-
-
   }
 
-  handlePriorityChange = (event) => {
-    
+  handlePriorityChange = (event) => {    
     this.setState({priority: event.target.value})
-
   }
 
   handleChange = (event) => {

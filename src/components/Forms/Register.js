@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SignIn.css";
+import "./Forms.css";
 import "tachyons";
 
 
@@ -62,6 +62,9 @@ class SignIn extends React.Component {
                         type="text" 
                         name="username"  
                         id="userName"
+                        autoFocus
+                        placeholder="Enter your name"
+                        required
                         onChange={this.onNameChange}  />
                 </div>
                 <div className="mt3">
@@ -70,7 +73,9 @@ class SignIn extends React.Component {
                         className=" inputField" 
                         type="email" 
                         name="email-address"  
-                        id="email-address" 
+                        id="email-address"
+                        placeholder="email@example.com"
+                        required
                         onChange={this.onEmailChange}   />
                 </div>
                 <div className="mv3">
@@ -80,6 +85,8 @@ class SignIn extends React.Component {
                         type="password" 
                         name="password"  
                         id="password" 
+                        placeholder="Choose a password"
+                        required
                         onChange={this.onPasswordChange}
                         />
                 </div>

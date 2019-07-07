@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SignIn.css";
+import "./Forms.css";
 import "tachyons";
 
 
@@ -33,14 +33,6 @@ class SignIn extends React.Component {
         }).then(response => response.json())
           .then(user => {
             if(user[0].id) {
-                
-                console.log(user);
-                /*
-                for (let key in user){
-                    console.log("keys: ", key);
-                    console.log("key value: ", user[key]);
-                }*/
-
               this.props.loadUser(user);
              this.props.handleRouteChange('home');
             }
@@ -54,22 +46,32 @@ class SignIn extends React.Component {
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                 <h3 className="f2  fw6 ph0 mh0 tc"><em>Sign In</em></h3>
                 <div className="mt3">
-                    <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                    <label 
+                     className="db fw6 lh-copy f6" 
+                     htmlFor="email-address">Email</label>
                     <input 
                         className=" inputField" 
+                        maxLength="50"
                         type="email" 
                         name="email-address"  
                         id="email-address" 
+                        placeholder="email@example.com"
+                        autoFocus
+                        required
                         onChange={this.handleEmailChange}
                         />
                 </div>
                 <div className="mv3">
-                    <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                    <label 
+                      className="db fw6 lh-copy f6" 
+                      htmlFor="password">Password</label>
                     <input 
                         className=" inputField"
                         type="password" 
                         name="password"  
                         id="password" 
+                        placeholder="Enter your password"
+                        required
                         onChange={this.handlePasswordChange}                            
                         />
                 </div>
@@ -89,7 +91,6 @@ class SignIn extends React.Component {
                     value="Sign In"
                     id="home"
                     onClick={this.onSubmitButtonClick} 
-
                     />
             </div>
             <div className="tc mt3">
