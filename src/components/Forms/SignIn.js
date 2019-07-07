@@ -32,9 +32,16 @@ class SignIn extends React.Component {
             })
         }).then(response => response.json())
           .then(user => {
-            if(user.id) {
+            if(user[0].id) {
+                
+                console.log(user);
+                /*
+                for (let key in user){
+                    console.log("keys: ", key);
+                    console.log("key value: ", user[key]);
+                }*/
+
               this.props.loadUser(user);
-              console.log(user);
              this.props.handleRouteChange('home');
             }
           })

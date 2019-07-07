@@ -7,11 +7,7 @@ import pri4 from './four.png';
 import pri5 from './five.png';
 
 
-
 const Notes = ({ sNo, item, priority }) => {
-
-  
-
   const imgName = (priorityNumber) => {
     switch(Number(priorityNumber)){
       case 5:
@@ -33,8 +29,6 @@ const Notes = ({ sNo, item, priority }) => {
         return pri3;
     }
   } 
-
-
   
   return (
     <div >

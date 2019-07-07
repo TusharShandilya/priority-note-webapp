@@ -18,7 +18,8 @@ const NotesList = ({ onDeleteClick, itemList }) => {
             
             <p 
             className="delete" 
-            id={`${i}`}
+            value={`${i}`}
+            id={`${itemList[i].sNo}`}
             onClick={onDeleteClick}>X</p>
          </div>
           <hr/>

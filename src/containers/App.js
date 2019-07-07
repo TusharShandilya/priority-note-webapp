@@ -44,43 +44,87 @@ class App extends Component {
     console.log(data);
     this.setState({
       user : {
-        id: data.id,
-        name: data.user_name,
-        email: data.email,
-        enteries: data.enteries,
-        joined: data.joined
-      }
+        id: data[0].id,
+        name: data[0].user_name,
+        email: data[0].email,
+        enteries: data[0].enteries,
+        joined: data[0].joined
+      }      
     })
+
+    let pushInList = [];
+    const userArrayLength = data.length
+
+    for(let i = 0; i < userArrayLength; i++){
+      pushInList.push({
+      sNo: data[i].list_id,
+      item: data[i].listitem,
+      priority: data[i].priority,
+      })
+    } 
+    
+    this.setState({list: pushInList});
   }
 
+  
   handleAddClick = () => {
-    const newListOfItems = this.state.list;
-   
-    if(this.state.inputField)
-    {newListOfItems.push({
-      sNo: newListOfItems.length,
-      item: this.state.inputField,
-      priority: this.state.priority,
-    });}
-
-    this.setState({list: newListOfItems});
-    this.setState({inputField: null});
-
-    this.clearInput();
     
+    let newListOfItems = this.state.list;
+
+    fetch('http://localhost:3001/add', {
+      method: 'post',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify({
+        priority: this.state.priority,
+        listitem: this.state.inputField,
+        user_id: this.state.user.id
+      })
+        }).then(resp => resp.json())
+          .then(addedItem => {
+          console.log("itemlist object: ", addedItem);
+          console.log(this.state.inputField);
+          
+          if(this.state.inputField) {
+            console.log("inside the if condition");
+            
+            newListOfItems.push({
+            sNo: addedItem.list_id,
+            item: addedItem.listitem,
+            priority: addedItem.priority,
+            });
+          }
+
+          console.log("this is list", newListOfItems);
+          this.setState({list: newListOfItems});
+          console.log(this.state.list);
+        })
+        
+        console.log(this.state.list);
+        this.clearInput();    
   }
 
   handleDeleteClick = (event) => {
-    console.log(event.target.id);
+    
     const newListOfItems = this.state.list;
 
-    newListOfItems.splice(event.target.id,1);
+    newListOfItems.splice(event.target.value,1);
 
     this.setState({list: newListOfItems});
+
+    fetch('http://localhost:3001/delete', {
+      method: 'delete',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify({
+        del_id: event.target.id
+      })
+    }).then(resp => resp.json())
+      .then(deleted => console.log(deleted))
+
+
   }
 
   handlePriorityChange = (event) => {
-    console.log(event.target.value);
+    
     this.setState({priority: event.target.value})
 
   }
@@ -90,7 +134,6 @@ class App extends Component {
   }
 
   clearInput = () => {
-    console.log(document.getElementById("entryField"));
     document.getElementById("entryField").value = ' ';
   }
 
