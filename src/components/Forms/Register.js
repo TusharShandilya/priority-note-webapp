@@ -15,17 +15,14 @@ class SignIn extends React.Component {
     }
 
     onNameChange = (event) => {
-        console.log(event.target.value)
         this.setState({name: event.target.value});
     }
 
     onEmailChange = (event) => {
-        console.log(event.target.value)
         this.setState({email: event.target.value});
     }
 
     onPasswordChange = (event) => {
-        console.log(event.target.value)
         this.setState({password: event.target.value});
     }
 
@@ -41,9 +38,9 @@ class SignIn extends React.Component {
           })
         }).then(resp => resp.json())
             .then(user => {
-                if(user.id){
+                if(user[0].id){
                     this.props.loadUser(user);
-                    this.props.handleRouteChange('home');
+                    this.props.handleRouteChange('signIn');
                 }
             })
     }

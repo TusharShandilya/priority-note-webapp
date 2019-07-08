@@ -41,7 +41,6 @@ class App extends Component {
   } 
 
   loadUser = (data) => {
-    console.log(data);
     this.setState({
       user : {
         id: data[0].id,
@@ -56,7 +55,6 @@ class App extends Component {
     const userArrayLength = data.length;
 
     if(data[0].list_id !== null) {
-      console.log(data[0].list_id)
       for(let i = 0; i < userArrayLength; i++){
         pushInList.push({
         sNo: data[i].list_id,
@@ -85,26 +83,17 @@ class App extends Component {
         user_id: this.state.user.id
       })
         }).then(resp => resp.json())
-          .then(addedItem => {
-          console.log("itemlist object: ", addedItem);
-          console.log(this.state.inputField);
-          
+          .then(addedItem => {          
           if(this.state.inputField) {
-            console.log("inside the if condition");
-            
             newListOfItems.push({
             sNo: addedItem.list_id,
             item: addedItem.listitem,
             priority: addedItem.priority,
             });
           }
-
-          console.log("this is list", newListOfItems);
           this.setState({list: newListOfItems});
-          console.log(this.state.list);
         })
-        
-        console.log(this.state.list);
+
         this.clearInput();    
   }
 
@@ -121,7 +110,7 @@ class App extends Component {
         del_id: event.target.id
       })
     }).then(resp => resp.json())
-      .then(deleted => console.log(deleted))
+      .then(deleted => (deleted))
   }
 
   handlePriorityChange = (event) => {    
