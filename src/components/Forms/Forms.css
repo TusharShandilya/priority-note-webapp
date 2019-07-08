@@ -10,8 +10,10 @@
 @import url('https://fonts.googleapis.com/css?family=Tangerine&display=swap');
 
 h3{
-    font-family: 'Tangerine', cursive;
-    letter-spacing: .15rem;
+    /* font-family: 'Tangerine', cursive; */
+    letter-spacing: .2rem;
+    /* text-decoration: underline; */
+    /* text-decoration-style: none; */
 }
 
 .inputField{

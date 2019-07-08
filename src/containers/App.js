@@ -76,7 +76,7 @@ class App extends Component {
     
     let newListOfItems = this.state.list;
 
-    fetch('http://localhost:3001/add', {
+    fetch('https://serene-tundra-18022.herokuapp.com/add', {
       method: 'post',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
@@ -114,7 +114,7 @@ class App extends Component {
     newListOfItems.splice(event.target.value,1);
     this.setState({list: newListOfItems});
 
-    fetch('http://localhost:3001/delete', {
+    fetch('https://serene-tundra-18022.herokuapp.com/delete', {
       method: 'delete',
       headers: {'Content-type': 'application/json'},
       body: JSON.stringify({
