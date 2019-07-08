@@ -29,6 +29,10 @@ h3{
     background-color: #121212;
 }
 
+h5{
+ text-align: center;
+ color: tomato;
+}
 
 .field{
     border-radius: 0.25rem;

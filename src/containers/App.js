@@ -13,7 +13,7 @@ const initialState = {
   inputField: null,  
   list: [],
   route: 'signIn',
-  priority: '3',
+  priority: '5',
   user : {
     id: '',
     name: '',
@@ -53,16 +53,21 @@ class App extends Component {
     })
 
     let pushInList = [];
-    const userArrayLength = data.length
+    const userArrayLength = data.length;
 
-    for(let i = 0; i < userArrayLength; i++){
-      pushInList.push({
-      sNo: data[i].list_id,
-      item: data[i].listitem,
-      priority: data[i].priority,
-      })
-    } 
-    
+    if(data[0].list_id !== null) {
+      console.log(data[0].list_id)
+      for(let i = 0; i < userArrayLength; i++){
+        pushInList.push({
+        sNo: data[i].list_id,
+        item: data[i].listitem,
+        priority: data[i].priority,
+        })
+      }
+    } else {
+        this.setState({list: []})
+    }
+        
     this.setState({list: pushInList});
   }
 

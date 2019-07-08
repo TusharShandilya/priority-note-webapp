@@ -9,9 +9,9 @@ class SignIn extends React.Component {
         super(props);
         this.state = {
             user_email: "",
-            password: ""
-        }
-    }
+            password: "",
+        }                
+    }    
 
     handleEmailChange = (event) =>{
         this.setState({user_email: event.target.value});
@@ -35,7 +35,11 @@ class SignIn extends React.Component {
             if(user[0].id) {
               this.props.loadUser(user);
              this.props.handleRouteChange('home');
-            }
+            } else if (user === 'incorrect submission'){
+                document.getElementById("failMessage").innerHTML = 'Enter email and password!';
+              } else {
+                document.getElementById("failMessage").innerHTML = 'Email/Password combination not found!';
+              }
           })
     }
 
@@ -60,7 +64,7 @@ class SignIn extends React.Component {
                         required
                         onChange={this.handleEmailChange}
                         />
-                </div>
+                </div>                
                 <div className="mv3">
                     <label 
                       className="db fw6 lh-copy f6" 
@@ -74,6 +78,7 @@ class SignIn extends React.Component {
                         required
                         onChange={this.handlePasswordChange}                            
                         />
+                       <h5 id="failMessage"></h5>
                 </div>
                     {/*
                         *TODO:
@@ -98,7 +103,8 @@ class SignIn extends React.Component {
                   href="#0" 
                   className="dim pointer links"
                   id="register"
-                  onClick={() => this.props.handleRouteChange('register')}>Register</a>
+                  onClick={() => this.props.handleRouteChange('register')}
+                  >Register</a>
                 {/*
                     *TODO:
                     ** make it work at the backend with update command
