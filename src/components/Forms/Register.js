@@ -28,7 +28,7 @@ class SignIn extends React.Component {
 
     onSubmitRegister = () => {
         
-      fetch('https://serene-tundra-18022.herokuapp.com/register', {
+      fetch('http://serene-tundra-18022.herokuapp.com/register', {
           method: 'post',
           headers: {'Content-type': 'application/json'},
           body: JSON.stringify({
@@ -38,7 +38,7 @@ class SignIn extends React.Component {
           })
         }).then(resp => resp.json())
             .then(user => {
-                if(user[0]){
+                if(user){
                     this.props.loadUser(user);
                     this.props.handleRouteChange('signIn');
                 }
